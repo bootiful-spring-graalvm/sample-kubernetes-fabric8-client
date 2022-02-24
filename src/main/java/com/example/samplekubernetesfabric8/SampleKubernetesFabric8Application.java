@@ -21,7 +21,6 @@ public class SampleKubernetesFabric8Application {
                 .forEach(System.out::println);
     }
 
-
     @Bean//(destroyMethod = "close")
     KubernetesClient kubernetesClient() {
         return new DefaultKubernetesClient();
