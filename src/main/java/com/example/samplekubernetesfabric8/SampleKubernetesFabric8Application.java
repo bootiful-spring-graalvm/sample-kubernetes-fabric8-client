@@ -1,7 +1,7 @@
 package com.example.samplekubernetesfabric8;
 
-import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,9 +21,10 @@ public class SampleKubernetesFabric8Application {
                 .forEach(System.out::println);
     }
 
-    @Bean//(destroyMethod = "close")
+    @Bean (destroyMethod = "close")
     KubernetesClient kubernetesClient() {
-        return new DefaultKubernetesClient();
+        return new KubernetesClientBuilder()
+                .build();
     }
 
     public static void main(String[] args) throws Exception {
